@@ -1,19 +1,11 @@
 "use client";
 
-import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import styles from './page.module.css';
 import Accordion from './components/Accordion';
+import Carousel from './components/Carousel';
 
 export default function Page() {
-  const images = [
-    "/teste-carousel.jpg",
-    "https://picsum.photos/seed/20/800/450",
-    "https://picsum.photos/seed/30/800/450",
-    "https://picsum.photos/seed/40/800/450",
-    "https://picsum.photos/seed/50/800/450",
-  ];
-
   // --- Accordion Data ---
   const myAccordionData = [
     {
@@ -63,55 +55,6 @@ export default function Page() {
     }
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  // Swipe / Drag State
-  const [touchStartX, setTouchStartX] = useState<number | null>(null);
-  const [touchEndX, setTouchEndX] = useState<number | null>(null);
-  const [isDragging, setIsDragging] = useState(false);
-
-  // Auto-play effect
-  useEffect(() => {
-    if (isDragging) return;
-
-    const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000);
-
-    return () => clearInterval(timer);
-  }, [currentIndex, images.length, isDragging]);
-
-  // --- Drag & Swipe Handlers ---
-  const handleDragStart = (clientX: number) => {
-    setIsDragging(true);
-    setTouchStartX(clientX);
-    setTouchEndX(clientX);
-  };
-
-  const handleDragMove = (clientX: number) => {
-    if (!isDragging) return;
-    setTouchEndX(clientX);
-  };
-
-  const handleDragEnd = () => {
-    if (!isDragging) return;
-    setIsDragging(false);
-
-    if (touchStartX !== null && touchEndX !== null) {
-      const distance = touchStartX - touchEndX;
-      const minSwipeDistance = 50;
-
-      if (distance > minSwipeDistance) {
-        setCurrentIndex((prev) => (prev + 1) % images.length);
-      } else if (distance < -minSwipeDistance) {
-        setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-      }
-    }
-
-    setTouchStartX(null);
-    setTouchEndX(null);
-  };
-
   return (
     <main className="relative min-h-screen w-full bg-[url('/verde-terra-bg.png')] bg-cover bg-center bg-fixed">
       
@@ -125,7 +68,6 @@ export default function Page() {
         <div className="flex flex-col items-center gap-2">
           
           {/* 1. Your Logo */}
-          {/* I set a fixed container size (w-32 h-32) so it stays perfectly proportioned */}
           <div className="relative w-32 h-32 md:w-40 md:h-40 mb-4 drop-shadow-lg">
             <Image
               src="/logo.png" 
@@ -136,13 +78,12 @@ export default function Page() {
             />
           </div>
 
-          {/* 2. Your Titles (Rocket removed!) */}
+          {/* 2. Your Titles */}
           <h1 className={styles.title}>Hello World</h1>
           <h1 className="text-4xl font-bold text-white drop-shadow-md">Ben Shalem</h1>
 
         </div>
         {/* --- END HEADER SECTION --- */}
-
 
         {/* YouTube Video */}
         <div className="w-full max-w-3xl">
@@ -161,36 +102,7 @@ export default function Page() {
 
         {/* Image Carousel */}
         <div className="w-full max-w-3xl">
-          <div 
-            className="relative w-full overflow-hidden rounded-2xl border border-white/30 shadow-lg group cursor-grab active:cursor-grabbing" 
-            style={{ paddingBottom: '56.25%' }}
-            onTouchStart={(e) => handleDragStart(e.targetTouches[0].clientX)}
-            onTouchMove={(e) => handleDragMove(e.targetTouches[0].clientX)}
-            onTouchEnd={handleDragEnd}
-            onMouseDown={(e) => handleDragStart(e.clientX)}
-            onMouseMove={(e) => handleDragMove(e.clientX)}
-            onMouseUp={handleDragEnd}
-            onMouseLeave={handleDragEnd}
-          >
-            <div 
-              className={`absolute top-0 left-0 w-full h-full flex ${isDragging ? '' : 'transition-transform duration-700 ease-in-out'}`}
-              style={{ 
-                transform: `translateX(calc(-${currentIndex * 100}% - ${isDragging && touchStartX && touchEndX ? (touchStartX - touchEndX) : 0}px))` 
-              }}
-            >
-              {images.map((src, index) => (
-                <div key={index} className="relative min-w-full h-full flex-shrink-0">
-                  <Image
-                    src={src}
-                    alt={`Carousel slide ${index + 1}`}
-                    fill
-                    className="object-cover"
-                                        draggable="false"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
+          <Carousel />
         </div>
 
         {/* Accordion Section */}
