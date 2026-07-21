@@ -4,12 +4,14 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 export default function Carousel() {
-  const images = [
-    "/teste-carousel.jpg",
-    "https://picsum.photos/seed/20/800/450",
-    "https://picsum.photos/seed/30/800/450",
-    "https://picsum.photos/seed/40/800/450",
-    "https://picsum.photos/seed/50/800/450",
+const images = [
+    "/1.png",
+    "/2.png",
+    "/3.png",
+    "/4.png",
+    "/5.png",
+    "/6.png",
+    "/7.png",
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
