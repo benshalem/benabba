@@ -27,7 +27,7 @@ const images = [
 
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000);
+    }, 5000);
 
     return () => clearInterval(timer);
   }, [currentIndex, images.length, isDragging]);

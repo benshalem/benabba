@@ -4,6 +4,7 @@ import Image from 'next/image';
 import styles from './page.module.css';
 import Accordion from './components/Accordion';
 import Carousel from './components/Carousel';
+import VideoPopup from './components/VideoPopup'; // <-- 1. ADD THIS IMPORT
 
 export default function Page() {
   // --- Accordion Data ---
@@ -85,19 +86,9 @@ export default function Page() {
         </div>
         {/* --- END HEADER SECTION --- */}
 
-        {/* YouTube Video */}
+        {/* --- REPLACED: NEW CLICKABLE VIDEO POPUP --- */}
         <div className="w-full max-w-3xl">
-          <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-            <iframe
-              className="absolute top-0 left-0 w-full h-full rounded-2xl shadow-lg"
-              src="https://www.youtube.com/embed/ogRMIxHsKAI"
-              title="Ben Shalem Video"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              loading="lazy"
-            />
-          </div>
+          <VideoPopup />
         </div>
 
         {/* Image Carousel */}
