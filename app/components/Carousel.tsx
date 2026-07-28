@@ -5,13 +5,13 @@ import Image from 'next/image';
 
 export default function Carousel() {
 const images = [
-    "/1.png",
-    "/2.png",
-    "/3.png",
-    "/4.png",
-    "/5.png",
-    "/6.png",
-    "/7.png",
+    "/01.png",
+    "/02.png",
+    "/03.png",
+    "/04.png",
+    "/05.png",
+    "/06.png",
+    "/07.png",
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);

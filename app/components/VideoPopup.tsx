@@ -14,20 +14,11 @@ export default function VideoPopup() {
         onClick={() => setIsOpen(true)}
       >
         <Image 
-          src="/preview-video-home.png" /* Change .png to .jpg if your image is a JPEG */
+          src="/preview-video-01.png" /* Change .png to .jpg if your image is a JPEG */
           alt="Preview Video Home"
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        
-        {/* Play Button Overlay (Optional but great for user experience) */}
-        <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-all">
-          <div className="w-16 h-16 bg-red-600/90 rounded-full flex items-center justify-center shadow-xl backdrop-blur-sm">
-            <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M8 5v14l11-7z" />
-            </svg>
-          </div>
-        </div>
       </div>
 
       {/* 2. THE FULL-SCREEN MODAL (POPUP) */}
