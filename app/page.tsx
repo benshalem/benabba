@@ -5,6 +5,7 @@ import styles from './page.module.css';
 import { Accordion, accordionData } from './components/Accordion'; // <-- Fixed named import
 import Carousel from './components/Carousel';
 import VideoPopup from './components/VideoPopup';
+import Script from 'next/script';
 
 export default function Page() {
   return (
@@ -36,6 +37,26 @@ export default function Page() {
         <div className="w-full max-w-3xl">
           <VideoPopup />
         </div>
+
+        {/* AddToAny BEGIN */}
+<div 
+  className="a2a_kit a2a_kit_size_32 a2a_default_style"
+  data-a2a-url="https://benabba.com/"
+  data-a2a-title="Transform Your Photos into Unforgettable Cinematic Motion"
+  data-a2a-media="https://www.youtube.com/watch?v=NftFCnkvNzs"
+>
+  <a className="a2a_dd" href="https://www.addtoany.com/share"></a>
+  <a className="a2a_button_facebook"></a>
+  <a className="a2a_button_email"></a>
+  <a className="a2a_button_whatsapp"></a>
+  <a className="a2a_button_copy_link"></a>
+  <a className="a2a_button_twitter"></a>
+  <a className="a2a_button_linkedin"></a>
+  <a className="a2a_button_pinterest"></a>
+  <a className="a2a_button_reddit"></a>
+</div>
+<Script src="https://static.addtoany.com/menu/page.js" strategy="lazyOnload" />
+{/* AddToAny END */}
 
         {/* --- IMAGE CAROUSEL --- */}
         <div className="w-full max-w-3xl">

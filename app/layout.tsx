@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Image from "next/image";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -14,8 +13,24 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ben Salem",
-  description: "Official site",
+  title: "Transform Your Photos into Unforgettable Cinematic Motion",
+  description: "Official site of Ben Abba",
+  openGraph: {
+    title: "Transform Your Photos into Unforgettable Cinematic Motion",
+    description: "Official site of Ben Abba",
+    url: "https://benabba.com/",
+    siteName: "Ben Abba",
+    images: [
+      {
+        url: "URL_DA_IMAGEM_DE_CAPA_DO_SEU_VIDEO.jpg", // Substitua pelo link direto da imagem
+        width: 1200,
+        height: 630,
+        alt: "Transform Your Photos into Unforgettable Cinematic Motion",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
