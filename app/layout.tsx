@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   title: "Transform Your Photos into Unforgettable Cinematic Motion",
   description: "Official site of Ben Abba",
   openGraph: {
-    title: "Transform Your Photos into Unforgettable Cinematic Motion",
+    title: "Transform Your Photos",
     description: "Official site of Ben Abba",
     url: "https://benabba.com/",
     siteName: "Ben Abba",
