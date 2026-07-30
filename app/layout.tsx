@@ -1,50 +1,41 @@
+import "./globals.css"; // <--- Placed at the very top!
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://benabba.com'), // <--- Adicionado aqui
-  title: "Bring Your Photos to Life",
+  title: "Transform Your Photos into Unforgettable Cinematic Motion",
   description: "Official site of Ben Abba",
-  openGraph: {
-    title: "Transform Your Photos",
-    description: "Official site of Ben Abba",
-    url: "https://benabba.com/",
-    siteName: "Ben Abba",
-    images: [
-      {
-        url: "/capa-facebook.png", // Ou o link direto da sua capa
-        width: 1200,
-        height: 630,
-        alt: "Transform Your Photos into Unforgettable Cinematic Motion",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>        
-        <main className="relative z-10">
-          {children}
-        </main>
+      {/* We removed the hardcoded background colors here so your CSS variables and .site-bg work */}
+      <body>
+        
+        {/* Main Wrapper for Desktop/Mobile Layout */}
+        <div className="flex justify-center w-full min-h-screen relative z-10">
+          
+          {/* LEFT SIDEBAR (PC Only - Transparent to show your background) */}
+          <aside className="hidden lg:block w-[300px] p-4">
+            {/* You can add desktop-only links or content here later */}
+          </aside>
+
+          {/* CENTER CONTENT (Mobile View & Main Site) */}
+          <main className="w-full max-w-md min-h-screen relative">
+            {children}
+          </main>
+
+          {/* RIGHT SIDEBAR (PC Only - Transparent to show your background) */}
+          <aside className="hidden lg:block w-[300px] p-4">
+            {/* You can add desktop-only content here later */}
+          </aside>
+          
+        </div>
+        
       </body>
     </html>
   );
