@@ -51,11 +51,11 @@ export default function Page() {
 
         {/* AddToAny BEGIN */}
         <div 
-          className="a2a_kit a2a_kit_size_32 a2a_default_style"
-          data-a2a-url="https://benabba.com/"
-          data-a2a-title="Transform Your Photos into Unforgettable Cinematic Motion"
-          data-a2a-media="https://www.youtube.com/watch?v=NftFCnkvNzs"
-        >
+  className="a2a_kit a2a_kit_size_32 a2a_default_style"
+  data-a2a-url="https://benabba.com/"
+  data-a2a-title="Transform Your Photos"
+  data-a2a-media="https://img.youtube.com/vi/NftFCnkvNzs/maxresdefault.jpg" 
+>
           <a className="a2a_dd" href="https://www.addtoany.com/share"></a>
           <a className="a2a_button_facebook"></a>
           <a className="a2a_button_email"></a>
