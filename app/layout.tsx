@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://benabba.com'), // <--- Adicionado aqui
-  title: "Transform Your Photos into Unforgettable Cinematic Motion",
+  title: "Bring Your Photos to Life",
   description: "Official site of Ben Abba",
   openGraph: {
     title: "Transform Your Photos",
