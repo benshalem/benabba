@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://benabba.com'), // <--- Adicionado aqui
   title: "Transform Your Photos into Unforgettable Cinematic Motion",
   description: "Official site of Ben Abba",
   openGraph: {
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     siteName: "Ben Abba",
     images: [
       {
-        url: "URL_DA_IMAGEM_DE_CAPA_DO_SEU_VIDEO.jpg", // Substitua pelo link direto da imagem
+        url: "/capa-facebook.png", // Ou o link direto da sua capa
         width: 1200,
         height: 630,
         alt: "Transform Your Photos into Unforgettable Cinematic Motion",
